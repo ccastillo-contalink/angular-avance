@@ -1,99 +1,12 @@
 <app-notes description="Aprendimos a cargar un componentes internos"></app-notes>
 <div class="container">
     <div class="row bootstrap snippets bootdeys">
-        <div class="col-md-3">
-            <div class="panel widget">
-                <div class="widget-header bg-primary"></div>
-                <div class="widget-body text-center">
-                    <img alt="Profile Picture" class="widget-img img-circle img-border-light"
-                        src="https://bootdey.com/img/Content/avatar/avatar1.png">
-                    <h4 class="mar-no">John Doe</h4>
-                    <p class="text-muted mar-btm">Administrator</p>
+        <div class="col-md-3"  *ngFor="let employee of employees">
+            <app-admin *ngIf="employee.type==='Admin'"></app-admin>
+            <app-art *ngIf="employee.type==='Art'"></app-art>
+            <app-web *ngIf="employee.type==='Web'"></app-web>
+            <app-manager *ngIf="employee.type==='Manager'"></app-manager>
 
-                    <div class="pad-ver">
-                        <button class="btn btn-primary">Follow</button>
-                        <button class="btn btn-success">Message</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="panel widget">
-                <div class="widget-header bg-success"></div>
-                <div class="widget-body text-center">
-                    <img alt="Profile Picture" class="widget-img img-circle img-border"
-                        src="https://bootdey.com/img/Content/avatar/avatar2.png">
-                    <h4 class="mar-no">Donald Brown</h4>
-                    <p class="text-muted mar-btm">Web and Graphic designer</p>
-
-                    <div class="pad-ver">
-                        <a class="btn btn-default btn-icon btn-hover-primary fa fa-facebook icon-lg add-tooltip"
-                            href="#" title="" data-original-title="Facebook"></a>
-                        <a class="btn btn-default btn-icon btn-hover-info fa fa-twitter icon-lg add-tooltip" href="#"
-                            title="" data-original-title="Twitter"></a>
-                        <a class="btn btn-default btn-icon btn-hover-danger fa fa-google-plus icon-lg add-tooltip"
-                            href="#" title="" data-original-title="Google+"></a>
-                        <a class="btn btn-default btn-icon btn-hover-mint fa fa-envelope icon-lg add-tooltip" href="#"
-                            title="" data-original-title="Email"></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="panel widget">
-                <div class="widget-header bg-purple">
-                    <img class="widget-bg img-responsive" src="https://via.placeholder.com/500x320/" alt="Image">
-                </div>
-                <div class="widget-body text-center">
-                    <img alt="Profile Picture" class="widget-img img-border-light"
-                        src="https://bootdey.com/img/Content/avatar/avatar3.png">
-                    <h4 class="mar-no">Lucy Moon</h4>
-                    <p class="text-muted mar-btm">Art Designer</p>
-
-                    <ul class="list-unstyled text-center pad-top mar-no clearfix">
-                        <li class="col-xs-4">
-                            <span class="text-lg">1,345</span>
-                            <p class="text-muted text-uppercase">
-                                <small>Following</small>
-                            </p>
-                        </li>
-                        <li class="col-xs-4">
-                            <span class="text-lg">23,456</span>
-                            <p class="text-muted text-uppercase">
-                                <small>Followers</small>
-                            </p>
-                        </li>
-                        <li class="col-xs-4">
-                            <span class="text-lg">52,678</span>
-                            <p class="text-muted text-uppercase">
-                                <small>Likes</small>
-                            </p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="panel text-center">
-                <div class="panel-body">
-                    <img alt="Avatar" class="img-md img-circle img-border mar-btm"
-                        src="https://bootdey.com/img/Content/avatar/avatar4.png">
-                    <h4 class="mar-no">Brenda Fuller</h4>
-                    <p>Project manager</p>
-                </div>
-                <div class="pad-all">
-                    <p class="text-muted">
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                    </p>
-                    <div class="pad-btm">
-                        <button class="btn btn-primary">Follow</button>
-                        <button class="btn btn-success">Message</button>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>

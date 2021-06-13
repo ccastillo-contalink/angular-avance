@@ -16,7 +16,7 @@ export class AppComponent {
         title: 'Componente de Modulos Externos',
         path: 'componente_externos'
       }, {
-        title: 'Routeo de Componentes Internos',
+        title: 'Componentes Internos',
         path: 'componente_internos'
       },{
         title: 'Componentes Externos Web',
