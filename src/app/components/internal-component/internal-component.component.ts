@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Employee} from '../../model/employee';
 
 @Component({
   selector: 'app-internal-component',
@@ -6,6 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./internal-component.component.css']
 })
 export class InternalComponentComponent implements OnInit {
+
+  public employees: Employee[]= [{
+    type:'Admin'
+
+  },{
+    type:'Web'
+
+  },{
+    type:'Art'
+
+  },{
+    type:'Manager'
+
+  }]
+
+
 
   constructor() { }
 
