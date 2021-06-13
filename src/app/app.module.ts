@@ -11,7 +11,9 @@ import { ManagerComponent } from './components/internal-component/manager/manage
 import { AdminComponent } from './components/internal-component/admin/admin.component';
 import { ArtComponent } from './components/internal-component/art/art.component';
 import { WebComponent } from './components/internal-component/web/web.component'
-import { QuillModule } from 'ngx-quill'
+import { QuillModule } from 'ngx-quill';
+import { RoutingParamsComponent } from './components/routing-params/routing-params.component';
+import { RoutingQueryParamsComponent } from './components/routing-query-params/routing-query-params.component'
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { QuillModule } from 'ngx-quill'
     ManagerComponent,
     AdminComponent,
     ArtComponent,
-    WebComponent
+    WebComponent,
+    RoutingParamsComponent,
+    RoutingQueryParamsComponent
   ],
   imports: [
     BrowserModule,

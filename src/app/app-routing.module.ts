@@ -17,6 +17,10 @@ const routes: Routes = [{
 {
   path: 'module_carga_lenta',
   loadChildren: () => import('./modules/lazy-loading-module/lazy-loading-module.module').then(m => m.LazyLoadingModuleModule)
+},
+{
+  path: 'routing',
+  loadChildren: () => import('./modules/routing/routing.module').then(m => m.RoutingModule)
 }];
 
 @NgModule({
