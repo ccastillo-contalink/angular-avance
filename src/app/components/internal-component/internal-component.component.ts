@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Employee } from '../../model/employee';
 
 @Component({
   selector: 'app-internal-component',
   templateUrl: './internal-component.component.html',
   styleUrls: ['./internal-component.component.css'],
+  encapsulation: ViewEncapsulation.None
 
 })
 export class InternalComponentComponent implements OnInit {
