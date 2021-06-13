@@ -8,6 +8,6 @@ import { NotesComponent } from './notes/notes.component';
   declarations: [NotesComponent],
   imports: [
     CommonModule
-  ]
+  ], exports: [NotesComponent]
 })
 export class SharedModule { }
