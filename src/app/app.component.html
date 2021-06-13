@@ -6,9 +6,9 @@
       <hr>
     </div>
     <ul class="list-unstyled components">
-      <li *ngFor="let menu of menus"> 
-        <a *ngIf="menu.children" href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">{{menu.title}}</a>
-        <ul class="collapse list-unstyled" id="homeSubmenu">
+      <li *ngFor="let menu of menus;"> 
+        <a *ngIf="menu.children" href="#{{menu.key}}" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">{{menu.title}}</a>
+        <ul class="collapse list-unstyled" [id]="menu.key">
           <li *ngFor="let child of menu.children"> <a [routerLink]="child.path">{{child.title}}</a> </li>
         </ul>
       </li>

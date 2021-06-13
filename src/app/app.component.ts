@@ -11,6 +11,7 @@ export class AppComponent {
 
   public menus: Menu[] = [{
     title: 'Modulos',
+    key: 'modulos',
     children: [
       {
         title: 'Componente de Modulos Externos',
@@ -29,13 +30,17 @@ export class AppComponent {
 
   },{
     title: 'Routing',
+    key: 'routing',
     children: [
       {
         title: 'Ruteo con Parametros',
-        path: 'componente_externos'
+        path: 'routing_params'
       }, {
         title: 'Routeo con Parametros de Consulta',
-        path: 'componente_internos'
+        path: 'routing_query_params'
+      },{
+        title: 'Routeo con Modulos Retardados',
+        path: 'routing'
       }
     ]
 
