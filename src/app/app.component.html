@@ -9,10 +9,10 @@
       <li *ngFor="let menu of menus"> 
         <a *ngIf="menu.children" href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">{{menu.title}}</a>
         <ul class="collapse list-unstyled" id="homeSubmenu">
-          <li *ngFor="let child of menu.children"> <a href="#">{{child.title}}</a> </li>
+          <li *ngFor="let child of menu.children"> <a [routerLink]="child.path">{{child.title}}</a> </li>
         </ul>
       </li>
-      <a  *ngIf="menu?.path" href="#homeSubmenu">{{menu.title}}</a>
+      <a  *ngIf="menu?.path" [routerLink]="menu.path">{{menu.title}}</a>
 
     </ul>
     <ul class="list-unstyled CTAs">
@@ -28,7 +28,7 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active"> <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item"> <a class="nav-link" href="#">Features</a> </li>
+          <li class="nav-item"> <a class="nav-link" >Features</a> </li>
           <li class="nav-item"> <a class="nav-link" href="#">Pricing</a> </li>
           <li class="nav-item"> <a class="nav-link" href="#">Contact</a> </li>
         </ul>
