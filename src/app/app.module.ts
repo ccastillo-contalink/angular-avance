@@ -11,7 +11,7 @@ import { ManagerComponent } from './components/internal-component/manager/manage
 import { AdminComponent } from './components/internal-component/admin/admin.component';
 import { ArtComponent } from './components/internal-component/art/art.component';
 import { WebComponent } from './components/internal-component/web/web.component'
-
+import { QuillModule } from 'ngx-quill'
 
 @NgModule({
   declarations: [
@@ -27,7 +27,9 @@ import { WebComponent } from './components/internal-component/web/web.component'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    QuillModule.forRoot()
+
   ],
   providers: [],
   bootstrap: [AppComponent]
