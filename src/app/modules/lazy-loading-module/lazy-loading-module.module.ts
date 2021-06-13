@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { LazyLoadingModuleRoutingModule } from './lazy-loading-module-routing.module';
 import { LazyLoadingModuleComponent } from './lazy-loading-module.component';
 import { DataTablesModule } from "angular-datatables";
+import {SharedModule } from './../../modules/shared/shared.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { DataTablesModule } from "angular-datatables";
   imports: [
     CommonModule,
     LazyLoadingModuleRoutingModule,
-    DataTablesModule
+    DataTablesModule,
+    SharedModule
   ]
 })
 export class LazyLoadingModuleModule { }
