@@ -27,6 +27,18 @@ export class AppComponent {
       }
     ]
 
+  },{
+    title: 'Routing',
+    children: [
+      {
+        title: 'Ruteo con Parametros',
+        path: 'componente_externos'
+      }, {
+        title: 'Routeo con Parametros de Consulta',
+        path: 'componente_internos'
+      }
+    ]
+
   }]
 
 
