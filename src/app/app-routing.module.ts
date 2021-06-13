@@ -13,6 +13,10 @@ const routes: Routes = [{
 }, {
   path: 'componentes_externo_web',
   component: WebComponentComponent
+},
+{
+  path: 'module_carga_lenta',
+  loadChildren: () => import('./modules/lazy-loading-module/lazy-loading-module.module').then(m => m.LazyLoadingModuleModule)
 }];
 
 @NgModule({

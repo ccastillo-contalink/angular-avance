@@ -23,7 +23,7 @@ export class AppComponent {
         path: 'componentes_externo_web'
       },{
         title: 'Modulo Carga Lenta',
-        path: 'modulo_carga_lenta'
+        path: 'module_carga_lenta'
       }
     ]
 
