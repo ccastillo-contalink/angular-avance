@@ -27,7 +27,7 @@ const routes: Routes = [{
   path: 'routing_params',
   component: RoutingParamsComponent,
   children: [{
-    path: '**',
+    path: '',
     redirectTo: 'posts',
     pathMatch: 'full'
   },
