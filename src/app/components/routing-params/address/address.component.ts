@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from '@angular/router'
 
 @Component({
   selector: 'app-address',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddressComponent implements OnInit {
 
-  constructor() { }
+  public address_id: string;
+
+  constructor(private activatedRouter: ActivatedRoute) { 
+
+  }
+
 
   ngOnInit() {
+
+    this.address_id  = this.activatedRouter.snapshot.params.id;
+
+
+
   }
 
 }
