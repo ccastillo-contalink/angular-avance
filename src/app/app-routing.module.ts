@@ -11,6 +11,7 @@ import { AboutComponent } from './components/routing-params/about/about.componen
 import { PhotosComponent } from './components/routing-params/photos/photos.component';
 import { VideosComponent } from './components/routing-params/videos/videos.component';
 import { FriendsComponent } from './components/routing-params/friends/friends.component'
+import { AddressComponent } from './components/routing-params/address/address.component'
 
 
 
@@ -48,6 +49,9 @@ const routes: Routes = [{
   }, {
     path: 'friends',
     component: FriendsComponent
+  },{
+    path: 'addresses/:id',
+    component: AddressComponent
   }
   ]
 }, {

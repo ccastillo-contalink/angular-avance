@@ -18,7 +18,8 @@ import { PostsComponent } from './components/routing-params/posts/posts.componen
 import { AboutComponent } from './components/routing-params/about/about.component';
 import { PhotosComponent } from './components/routing-params/photos/photos.component';
 import { VideosComponent } from './components/routing-params/videos/videos.component';
-import { FriendsComponent } from './components/routing-params/friends/friends.component'
+import { FriendsComponent } from './components/routing-params/friends/friends.component';
+import { AddressComponent } from './components/routing-params/address/address.component'
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { FriendsComponent } from './components/routing-params/friends/friends.co
     AboutComponent,
     PhotosComponent,
     VideosComponent,
-    FriendsComponent
+    FriendsComponent,
+    AddressComponent
   ],
   imports: [
     BrowserModule,
