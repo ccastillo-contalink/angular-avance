@@ -13,7 +13,12 @@ import { ArtComponent } from './components/internal-component/art/art.component'
 import { WebComponent } from './components/internal-component/web/web.component'
 import { QuillModule } from 'ngx-quill';
 import { RoutingParamsComponent } from './components/routing-params/routing-params.component';
-import { RoutingQueryParamsComponent } from './components/routing-query-params/routing-query-params.component'
+import { RoutingQueryParamsComponent } from './components/routing-query-params/routing-query-params.component';
+import { PostsComponent } from './components/routing-query-params/posts/posts.component';
+import { AboutComponent } from './components/routing-query-params/about/about.component';
+import { PhotosComponent } from './components/routing-query-params/photos/photos.component';
+import { VideosComponent } from './components/routing-query-params/videos/videos.component';
+import { FriendsComponent } from './components/routing-query-params/friends/friends.component'
 
 @NgModule({
   declarations: [
@@ -26,7 +31,12 @@ import { RoutingQueryParamsComponent } from './components/routing-query-params/r
     ArtComponent,
     WebComponent,
     RoutingParamsComponent,
-    RoutingQueryParamsComponent
+    RoutingQueryParamsComponent,
+    PostsComponent,
+    AboutComponent,
+    PhotosComponent,
+    VideosComponent,
+    FriendsComponent
   ],
   imports: [
     BrowserModule,
