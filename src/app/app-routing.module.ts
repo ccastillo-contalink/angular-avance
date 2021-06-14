@@ -6,11 +6,11 @@ import { WebComponentComponent } from './components/web-component/web-component.
 import { RoutingParamsComponent } from './components/routing-params/routing-params.component';
 import { RoutingQueryParamsComponent } from './components/routing-query-params/routing-query-params.component';
 
-import { PostsComponent } from './components/routing-query-params/posts/posts.component';
-import { AboutComponent } from './components/routing-query-params/about/about.component';
-import { PhotosComponent } from './components/routing-query-params/photos/photos.component';
-import { VideosComponent } from './components/routing-query-params/videos/videos.component';
-import { FriendsComponent } from './components/routing-query-params/friends/friends.component'
+import { PostsComponent } from './components/routing-params/posts/posts.component';
+import { AboutComponent } from './components/routing-params/about/about.component';
+import { PhotosComponent } from './components/routing-params/photos/photos.component';
+import { VideosComponent } from './components/routing-params/videos/videos.component';
+import { FriendsComponent } from './components/routing-params/friends/friends.component'
 
 
 
