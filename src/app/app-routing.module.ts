@@ -6,6 +6,14 @@ import { WebComponentComponent } from './components/web-component/web-component.
 import { RoutingParamsComponent } from './components/routing-params/routing-params.component';
 import { RoutingQueryParamsComponent } from './components/routing-query-params/routing-query-params.component';
 
+import { PostsComponent } from './components/routing-query-params/posts/posts.component';
+import { AboutComponent } from './components/routing-query-params/about/about.component';
+import { PhotosComponent } from './components/routing-query-params/photos/photos.component';
+import { VideosComponent } from './components/routing-query-params/videos/videos.component';
+import { FriendsComponent } from './components/routing-query-params/friends/friends.component'
+
+
+
 const routes: Routes = [{
   path: 'componente_externos',
   component: ExternalComponentComponent
@@ -17,7 +25,31 @@ const routes: Routes = [{
   component: WebComponentComponent
 }, {
   path: 'routing_params',
-  component: RoutingParamsComponent
+  component: RoutingParamsComponent,
+  children: [{
+    path: '**',
+    redirectTo: 'posts',
+    pathMatch: 'full'
+  },
+  {
+    path: 'posts',
+    component: PostsComponent
+  },
+  {
+    path: 'about',
+    component: AboutComponent
+  },
+  {
+    path: 'photos',
+    component: PhotosComponent
+  }, {
+    path: 'videos',
+    component: VideosComponent
+  }, {
+    path: 'friends',
+    component: FriendsComponent
+  }
+  ]
 }, {
   path: 'routing_query_params',
   component: RoutingQueryParamsComponent
