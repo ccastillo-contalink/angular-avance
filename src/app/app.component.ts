@@ -19,16 +19,16 @@ export class AppComponent {
       }, {
         title: 'Componentes Internos',
         path: 'componente_internos'
-      },{
+      }, {
         title: 'Componentes Externos Web',
         path: 'componentes_externo_web'
-      },{
+      }, {
         title: 'Modulo Carga Lenta',
         path: 'module_carga_lenta'
       }
     ]
 
-  },{
+  }, {
     title: 'Routing',
     key: 'routing',
     children: [
@@ -38,13 +38,22 @@ export class AppComponent {
       }, {
         title: 'Routeo con Parametros de Consulta',
         path: 'routing_query_params'
-      },{
+      }, {
         title: 'Routeo con Modulos Retardados',
         path: 'routing'
       }
     ]
-
-  }]
+  },
+  {
+    title: 'Observable',
+    key: 'observable',
+    children: [{
+      title: 'Simple CRUD',
+      path: 'crud'
+    }
+    ]
+  }
+  ]
 
 
 
