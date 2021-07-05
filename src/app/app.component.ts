@@ -49,7 +49,7 @@ export class AppComponent {
     key: 'observable',
     children: [{
       title: 'Simple CRUD',
-      path: 'crud'
+      path: 'observable/crud'
     }
     ]
   }

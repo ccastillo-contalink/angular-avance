@@ -65,7 +65,8 @@ const routes: Routes = [{
 {
   path: 'routing',
   loadChildren: () => import('./modules/routing/routing.module').then(m => m.RoutingModule)
-}];
+},
+  { path: 'observable', loadChildren: () => import('./modules/observable/observable.module').then(m => m.ObservableModule) }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
