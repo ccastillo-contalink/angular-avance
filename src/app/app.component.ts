@@ -50,6 +50,9 @@ export class AppComponent {
     children: [{
       title: 'Simple CRUD',
       path: 'observable/crud'
+    },{
+      title: 'Weather',
+      path: 'observable/weather'
     }
     ]
   }
