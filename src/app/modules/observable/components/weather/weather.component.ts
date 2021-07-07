@@ -18,10 +18,14 @@ export class WeatherComponent implements OnInit {
   weather_lithgow: number;
 
 
+  weather_darvin$: Observable<number>;
+
+
   constructor() {
     this.weather_syndney$ = this.getWeatherSydney();
     this.weather_melbourne$ = this.getMelbourne();
     this.weather_lithgow$ = this.getLithgow();
+    this.weather_darvin$ = this.getDarvin();
 
   }
 
@@ -63,6 +67,34 @@ export class WeatherComponent implements OnInit {
   }
 
   getLithgow(): Observable<number> {
+
+    return new Observable(observer => {
+
+      observer.next(this.getRandom());
+
+      setTimeout(()=> {
+        observer.next(this.getRandom());
+
+      }, 4000);
+
+
+      setTimeout(()=> {
+        observer.next(this.getRandom());
+
+      }, 8000);
+
+
+      setTimeout(()=> {
+        observer.complete();
+
+      }, 12000);
+
+    })
+
+  }
+
+
+  getDarvin(): Observable<number> {
 
     return new Observable(observer => {
 
