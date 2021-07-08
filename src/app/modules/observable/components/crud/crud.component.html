@@ -61,13 +61,13 @@
                         </div>
                         <div class="collapse show" id="promocode" data-parent="#cart-accordion">
                             <div class="card-body">
-                                <form class="needs-validation" novalidate="">
+                                <div class="needs-validation" novalidate="">
                                     <div class="form-group">
                                         <input class="form-control" type="text" id="cart-promocode" placeholder="Promo code" required="">
                                         <div class="invalid-feedback">Please provide a valid promo code!</div>
                                     </div>
-                                    <button class="btn btn-outline-primary btn-block" type="submit">Apply promo code</button>
-                                </form>
+                                    <button class="btn btn-outline-primary btn-block" (click)="applyDiscount()">Apply promo code</button>
+                                </div>
                             </div>
                         </div>
                     </div>

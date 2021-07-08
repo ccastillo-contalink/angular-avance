@@ -1,5 +1,4 @@
 <!--https://stackoverflow.com/questions/49055721/navbar-drop-down-menu-not-working-with-angular-and-bootstrap-4-->
-<ngx-alerts></ngx-alerts>
 <div class="wrapper">
   <nav id="sidebar" [ngClass]="{'active': open_menu}">
     <div class="sidebar-header">
@@ -7,13 +6,14 @@
       <hr>
     </div>
     <ul class="list-unstyled components">
-      <li *ngFor="let menu of menus;"> 
-        <a *ngIf="menu.children" href="#{{menu.key}}" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">{{menu.title}}</a>
+      <li *ngFor="let menu of menus;">
+        <a *ngIf="menu.children" href="#{{menu.key}}" data-toggle="collapse" aria-expanded="false"
+          class="dropdown-toggle">{{menu.title}}</a>
         <ul class="collapse list-unstyled" [id]="menu.key">
           <li *ngFor="let child of menu.children"> <a [routerLink]="child.path">{{child.title}}</a> </li>
         </ul>
       </li>
-      <a  *ngIf="menu?.path" [routerLink]="menu.path">{{menu.title}}</a>
+      <a *ngIf="menu?.path" [routerLink]="menu.path">{{menu.title}}</a>
 
     </ul>
     <ul class="list-unstyled CTAs">
@@ -21,24 +21,23 @@
     </ul>
   </nav>
   <div class="content" style="width:100%">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light"> <button (click)="open_menu = !open_menu" type="button" id="sidebarCollapse"
-        class="btn btn-info"> <i class="fa fa-align-justify"></i> </button> <button class="navbar-toggler" type="button"
-        data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-        aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light"> <button (click)="open_menu = !open_menu" type="button"
+        id="sidebarCollapse" class="btn btn-info"> <i class="fa fa-align-justify"></i> </button> <button
+        class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+        aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active"> <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item"> <a class="nav-link" >Features</a> </li>
+          <li class="nav-item"> <a class="nav-link">Features</a> </li>
           <li class="nav-item"> <a class="nav-link" href="#">Pricing</a> </li>
           <li class="nav-item"> <a class="nav-link" href="#">Contact</a> </li>
         </ul>
       </div>
     </nav>
     <div class="content-wrapper">
+      <notifier-container></notifier-container>
       <router-outlet></router-outlet>
-      
-
     </div>
   </div>
 </div>

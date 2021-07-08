@@ -3,6 +3,8 @@ import { ClothingService } from '../../services/clothing.service';
 import { Product } from '../../../../model/product';
 import { Observable } from 'rxjs';
 import { map} from 'rxjs/operators';
+import { Message, TypeMessage} from '../../../../model/message';
+import {MessageService} from '../../../../services/message.service';
 
 
 @Component({
@@ -17,7 +19,7 @@ export class CrudComponent implements OnInit {
 
 
 
-  constructor(private clothingService: ClothingService) {
+  constructor(private clothingService: ClothingService, private messageService: MessageService) {
 
    }
 
@@ -33,6 +35,15 @@ export class CrudComponent implements OnInit {
 
     }));
 
+  }
+
+
+
+  public applyDiscount(){
+    this.messageService.notifyAlert({
+      message: 'Se ha procesado un Descuento',
+      type: TypeMessage.SUCCESS
+    })
   }
 
 }

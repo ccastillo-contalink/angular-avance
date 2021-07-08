@@ -1,14 +1,20 @@
-import { Component } from '@angular/core';
-import { AlertService } from 'ngx-alerts';
+import { Component, OnInit } from '@angular/core';
+
 import { Menu } from './model/menu';
+import { Message, TypeMessage } from './model/message';
+import { Observable } from 'rxjs';
+import { MessageService } from './services/message.service';
+import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   open_menu: boolean = false;
+
+  alert$: Observable<Message>;
 
   public menus: Menu[] = [{
     title: 'Modulos',
@@ -51,7 +57,7 @@ export class AppComponent {
     children: [{
       title: 'Simple CRUD',
       path: 'observable/crud'
-    },{
+    }, {
       title: 'Weather',
       path: 'observable/weather'
     }
@@ -59,8 +65,22 @@ export class AppComponent {
   }
   ]
 
-  constructor(private alertService: AlertService){
-    
+  constructor(private alertService: NotifierService, private notif: MessageService) {
+
+    this.alert$ = this.notif.notify.asObservable();
+
+  }
+
+
+  public ngOnInit() {
+    this.alert$.subscribe(message => {
+
+      if (message.type === TypeMessage.SUCCESS) {
+        this.alertService.notify('success', message.message);
+      } else if (message.type === TypeMessage.ERROR) {
+        this.alertService.notify('error', message.message);
+      }
+    })
   }
 
 

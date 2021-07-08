@@ -20,7 +20,11 @@ import { PhotosComponent } from './components/routing-params/photos/photos.compo
 import { VideosComponent } from './components/routing-params/videos/videos.component';
 import { FriendsComponent } from './components/routing-params/friends/friends.component';
 import { AddressComponent } from './components/routing-params/address/address.component'
-import { AlertModule } from 'ngx-alerts';
+
+import {MessageService} from './services/message.service';
+import { NotifierModule } from 'angular-notifier';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+
 
 @NgModule({
   declarations: [
@@ -46,11 +50,20 @@ import { AlertModule } from 'ngx-alerts';
     AppRoutingModule,
     SharedModule,
     QuillModule.forRoot(),
-    AlertModule.forRoot({maxMessages: 5, timeout: 5000})
-
+    NotifierModule.withConfig({
+      position: {
+        horizontal:{
+          position: 'right'
+        },
+        vertical: {
+          position: 'top'
+        }
+      }
+    }),    
+    BrowserAnimationsModule
 
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
