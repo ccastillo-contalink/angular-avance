@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ClothingService} from '../../services/clothing.service';
+import { ClothingService } from '../../services/clothing.service';
+
 
 @Component({
   selector: 'app-crud',
@@ -8,6 +9,8 @@ import {ClothingService} from '../../services/clothing.service';
   providers: [ClothingService]
 })
 export class CrudComponent implements OnInit {
+
+
 
   constructor(private clothingService: ClothingService) { }
 
