@@ -3,6 +3,7 @@ export interface Product {
     size: string;
     quantity: number;
     price: number;
+    amount?: number;
 }
 
 export enum Size {
