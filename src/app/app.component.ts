@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AlertService } from 'ngx-alerts';
 import { Menu } from './model/menu';
 
 @Component({
@@ -57,6 +58,10 @@ export class AppComponent {
     ]
   }
   ]
+
+  constructor(private alertService: AlertService){
+    
+  }
 
 
 

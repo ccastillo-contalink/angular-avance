@@ -20,6 +20,7 @@ import { PhotosComponent } from './components/routing-params/photos/photos.compo
 import { VideosComponent } from './components/routing-params/videos/videos.component';
 import { FriendsComponent } from './components/routing-params/friends/friends.component';
 import { AddressComponent } from './components/routing-params/address/address.component'
+import { AlertModule } from 'ngx-alerts';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,9 @@ import { AddressComponent } from './components/routing-params/address/address.co
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    QuillModule.forRoot()
+    QuillModule.forRoot(),
+    AlertModule.forRoot({maxMessages: 5, timeout: 5000})
+
 
   ],
   providers: [],
