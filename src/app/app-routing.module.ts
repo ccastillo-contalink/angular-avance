@@ -15,16 +15,7 @@ import { AddressComponent } from './components/routing-params/address/address.co
 
 
 
-const routes: Routes = [{
-  path: 'componente_externos',
-  component: ExternalComponentComponent
-}, {
-  path: 'componente_internos',
-  component: InternalComponentComponent
-}, {
-  path: 'componentes_externo_web',
-  component: WebComponentComponent
-}, {
+const routes: Routes = [ {
   path: 'routing_params',
   component: RoutingParamsComponent,
   children: [{
