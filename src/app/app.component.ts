@@ -60,6 +60,9 @@ export class AppComponent implements OnInit {
     }, {
       title: 'Weather',
       path: 'observable/weather'
+    },{
+      title: 'Search',
+      path: 'observable/search'
     }
     ]
   }
