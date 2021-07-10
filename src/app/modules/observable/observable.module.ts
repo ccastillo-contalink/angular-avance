@@ -11,11 +11,13 @@ import {HttpClientModule} from '@angular/common/http';
 import {MoviesService} from './services/movies.service';
 
 
+import {ReactiveFormsModule} from '@angular/forms'
+
 @NgModule({
   declarations: [ObservableComponent, CrudComponent, WeatherComponent, SearchComponent],
   imports: [
     CommonModule,
-    ObservableRoutingModule, HttpClientModule
+    ObservableRoutingModule, HttpClientModule, ReactiveFormsModule
   ],
   providers: [MoviesService]
 })
