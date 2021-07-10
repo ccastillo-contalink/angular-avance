@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {MoviesService} from '../../services/movies.service';
 import {Movie } from '../../../../model/movie'
-import { Observable} from 'rxjs';
+import { Observable, of} from 'rxjs';
 import { FormControl, FormGroup } from '@angular/forms';
+import {mergeMap, switchMap} from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-search',
@@ -24,13 +26,19 @@ export class SearchComponent implements OnInit {
 
   ngOnInit() {
 
-    this.movieForm.get('query').valueChanges.subscribe(text=>{
-      console.log(text);
-      this.movies$ = this.moviesService.search(text);
+    let query$: Observable<string> = this.movieForm.get('query').valueChanges;
 
+    this.movies$ = query$.pipe(
 
-    });
+      switchMap(query=> {
 
+        if(query === ''){
+          of([]);
+        }
+
+        return this.moviesService.search(query);
+      })
+    )
 
     
   }
