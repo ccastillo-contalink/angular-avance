@@ -44,14 +44,19 @@ export class WeatherComponent implements OnInit {
     this.subcription_lithgow = this.weather_lithgow$.subscribe(item => {
       this.weather_lithgow = item;
 
-    });
+    }, error=>{
+      console.log(error);
+
+    } , ()=>{
+      console.log("termino");
+    } );
 
 
 
     setTimeout(()=> {
       this.subcription_lithgow.unsubscribe();
 
-    }, 5000)
+    }, 20000);
   }
 
 
@@ -114,6 +119,11 @@ export class WeatherComponent implements OnInit {
         observer.next(this.getRandom());
 
       }, 4000);
+
+      setTimeout(()=> {
+        observer.error(this.getRandom());
+
+      }, 5000);
 
 
       setTimeout(()=> {
