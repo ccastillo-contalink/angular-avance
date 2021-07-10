@@ -16,19 +16,29 @@ export class WeatherComponent implements OnInit {
 
   weather_lithgow$: Observable<number>;
   weather_lithgow: number;
-  subcription_lithgow: Subscription;
-
-
 
 
   weather_darvin$: Observable<number>;
 
+  weather_mexico_city$: Observable<number>;
+  weather_mexico_city: number;
+
+  subscription_mexico_city: Subscription;
+
+  weather_monterrey$: Observable<number>;
+  weather_monterrey: number;
+
+
 
   constructor() {
-    this.weather_syndney$ = this.getWeatherSydney();
-    this.weather_melbourne$ = this.getMelbourne();
-    this.weather_lithgow$ = this.getLithgow();
-    this.weather_darvin$ = this.getDarvin();
+    this.weather_syndney$ = this.getCompletedObservable();
+    this.weather_melbourne$ = this.getCompletedObservable();
+
+    this.weather_lithgow$ = this.getTimerObservable();
+    this.weather_darvin$ = this.getTimerObservable();
+
+    this.weather_mexico_city$ = this.getTimerObservable();
+    this.weather_monterrey$ = this.getErrorObservable();
 
   }
 
@@ -40,48 +50,44 @@ export class WeatherComponent implements OnInit {
     });
 
 
-    //Va seguir escuchando
-    this.subcription_lithgow = this.weather_lithgow$.subscribe(item => {
+    this.weather_lithgow$.subscribe(item => {
       this.weather_lithgow = item;
 
-    }, error=>{
-      console.log(error);
+    });
 
-    } , ()=>{
-      console.log("termino");
-    } );
+
+    this.subscription_mexico_city = this.weather_mexico_city$.subscribe(item => {
+      this.weather_mexico_city = item;
+    });
+
 
 
 
     setTimeout(()=> {
-      this.subcription_lithgow.unsubscribe();
+      this.subscription_mexico_city.unsubscribe();
+    }, 5000);
 
-    }, 20000);
+    this.weather_monterrey$.subscribe(item => {
+      this.weather_monterrey = item;
+    }, error=> {
+      console.log("ERROR", error);
+    }, ()=> {
+      console.log("se completo");
+    });
   }
 
 
-  getWeatherSydney(): Observable<number> {
-    let weather = this.getRandom();
+
+  getCompletedObservable(): Observable<number> {
 
     return new Observable(observer => {
-      observer.next(weather);
+      observer.next(this.getRandom());
       observer.complete();
     })
 
   }
 
-
-  getMelbourne(): Observable<number> {
-    let weather = this.getRandom();
-
-    return new Observable(observer => {
-      observer.next(weather);
-      observer.complete();
-    })
-
-  }
-
-  getLithgow(): Observable<number> {
+  getTimerObservable(): Observable<number> {
 
     return new Observable(observer => {
 
@@ -109,7 +115,9 @@ export class WeatherComponent implements OnInit {
   }
 
 
-  getDarvin(): Observable<number> {
+
+
+  getErrorObservable(): Observable<number> {
 
     return new Observable(observer => {
 
@@ -120,14 +128,9 @@ export class WeatherComponent implements OnInit {
 
       }, 4000);
 
-      setTimeout(()=> {
-        observer.error(this.getRandom());
-
-      }, 5000);
-
 
       setTimeout(()=> {
-        observer.next(this.getRandom());
+        observer.error('No pudimos terminar');
 
       }, 8000);
 
@@ -140,6 +143,9 @@ export class WeatherComponent implements OnInit {
     })
 
   }
+
+
+
 
   getRandom(): number {
     return Math.floor(Math.random() * (40 - 5 + 1) + 5);
