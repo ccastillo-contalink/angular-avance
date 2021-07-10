@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-weather',
@@ -16,6 +16,9 @@ export class WeatherComponent implements OnInit {
 
   weather_lithgow$: Observable<number>;
   weather_lithgow: number;
+  subcription_lithgow: Subscription;
+
+
 
 
   weather_darvin$: Observable<number>;
@@ -38,10 +41,17 @@ export class WeatherComponent implements OnInit {
 
 
     //Va seguir escuchando
-    this.weather_lithgow$.subscribe(item => {
+    this.subcription_lithgow = this.weather_lithgow$.subscribe(item => {
       this.weather_lithgow = item;
 
-    })
+    });
+
+
+
+    setTimeout(()=> {
+      this.subcription_lithgow.unsubscribe();
+
+    }, 5000)
   }
 
 
