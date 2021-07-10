@@ -6,13 +6,14 @@ import { ObservableComponent } from './observable.component';
 import { CrudComponent } from './components/crud/crud.component';
 import { WeatherComponent } from './components/weather/weather.component';
 import { SearchComponent } from './components/search/search.component';
+import { InvoiceComponent } from './components/invoice/invoice.component';
 
 import {HttpClientModule} from '@angular/common/http';
 import {MoviesService} from './services/movies.service';
+import {InvoiceService} from './services/invoice.service';
 
 
 import {ReactiveFormsModule} from '@angular/forms';
-import { InvoiceComponent } from './components/invoice/invoice.component'
 
 @NgModule({
   declarations: [ObservableComponent, CrudComponent, WeatherComponent, SearchComponent, InvoiceComponent],
@@ -20,6 +21,6 @@ import { InvoiceComponent } from './components/invoice/invoice.component'
     CommonModule,
     ObservableRoutingModule, HttpClientModule, ReactiveFormsModule
   ],
-  providers: [MoviesService]
+  providers: [MoviesService, InvoiceService]
 })
 export class ObservableModule { }
