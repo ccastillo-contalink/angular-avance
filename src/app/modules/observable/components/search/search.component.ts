@@ -3,7 +3,7 @@ import {MoviesService} from '../../services/movies.service';
 import {Movie } from '../../../../model/movie'
 import { Observable, of} from 'rxjs';
 import { FormControl, FormGroup } from '@angular/forms';
-import {mergeMap, switchMap} from 'rxjs/operators';
+import {mergeMap, switchMap, debounceTime} from 'rxjs/operators';
 
 
 @Component({
@@ -29,7 +29,7 @@ export class SearchComponent implements OnInit {
     let query$: Observable<string> = this.movieForm.get('query').valueChanges;
 
     this.movies$ = query$.pipe(
-
+      debounceTime(500),
       switchMap(query=> {
 
         if(query === ''){
