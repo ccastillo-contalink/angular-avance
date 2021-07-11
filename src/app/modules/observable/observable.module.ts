@@ -14,9 +14,10 @@ import {InvoiceService} from './services/invoice.service';
 
 
 import {ReactiveFormsModule} from '@angular/forms';
+import { ShopComponent } from './components/shop/shop.component';
 
 @NgModule({
-  declarations: [ObservableComponent, CrudComponent, WeatherComponent, SearchComponent, InvoiceComponent],
+  declarations: [ObservableComponent, CrudComponent, WeatherComponent, SearchComponent, InvoiceComponent, ShopComponent],
   imports: [
     CommonModule,
     ObservableRoutingModule, HttpClientModule, ReactiveFormsModule

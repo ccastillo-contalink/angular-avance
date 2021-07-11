@@ -6,13 +6,15 @@ import { CrudComponent } from './components/crud/crud.component';
 import { WeatherComponent } from './components/weather/weather.component';
 import { SearchComponent } from './components/search/search.component';
 import { InvoiceComponent } from './components/invoice/invoice.component'
+import { ShopComponent } from './components/shop/shop.component';
 
 const routes: Routes = [
   { path: '', component: ObservableComponent },
   { path: 'crud', component: CrudComponent },
   { path: 'weather', component: WeatherComponent },
   { path: 'search', component: SearchComponent },
-  { path: 'invoice', component: InvoiceComponent }];
+  { path: 'invoice', component: InvoiceComponent },
+  { path: 'shop/:deparment', component: ShopComponent }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

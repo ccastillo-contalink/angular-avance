@@ -66,6 +66,9 @@ export class AppComponent implements OnInit {
     },{
       title: 'Invoice',
       path: 'observable/invoice'
+    },{
+      title: 'Shop',
+      path: 'observable/shop/ropa'
     }
     ]
   }
