@@ -12,8 +12,9 @@
         <ul class="collapse list-unstyled" [id]="menu.key">
           <li *ngFor="let child of menu.children"> <a [routerLink]="child.path">{{child.title}}</a> </li>
         </ul>
+        <a *ngIf="menu?.path" [routerLink]="menu.path">{{menu.title}}</a>
+
       </li>
-      <a *ngIf="menu?.path" [routerLink]="menu.path">{{menu.title}}</a>
 
     </ul>
     <ul class="list-unstyled CTAs">

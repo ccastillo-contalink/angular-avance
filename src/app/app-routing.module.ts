@@ -57,7 +57,8 @@ const routes: Routes = [ {
   path: 'routing',
   loadChildren: () => import('./modules/routing/routing.module').then(m => m.RoutingModule)
 },
-  { path: 'observable', loadChildren: () => import('./modules/observable/observable.module').then(m => m.ObservableModule) }];
+  { path: 'observable', loadChildren: () => import('./modules/observable/observable.module').then(m => m.ObservableModule) },
+  { path: 'events', loadChildren: () => import('./modules/events/events.module').then(m => m.EventsModule) }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

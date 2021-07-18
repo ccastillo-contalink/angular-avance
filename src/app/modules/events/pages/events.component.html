@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col-md-6" appDrop [no_list]="0">
+        <ul class="list-group">
+            <li class="list-group-item"  *ngFor="let item of service.list[0]" draggable="true" appDrag [item]="item" [no_list]="0">{{item.name}}</li>
+    
+          </ul>
+    </div>
+    <div class="col-md-6" appDrop [no_list]="1">
+        <ul class="list-group">
+            <li class="list-group-item"  *ngFor="let item of service.list[1]" draggable="true" appDrag [item]="item" [no_list]="1"> {{item.name}}</li>
+          </ul>
+    </div>
+</div>

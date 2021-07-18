@@ -71,7 +71,10 @@ export class AppComponent implements OnInit {
       path: 'observable/shop/ropa'
     }
     ]
-  }
+  },{
+    title: 'Eventos',
+    path: 'events' 
+  },
   ]
 
   constructor(private alertService: NotifierService, private notif: MessageService) {
