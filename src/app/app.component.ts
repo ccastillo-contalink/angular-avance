@@ -60,21 +60,32 @@ export class AppComponent implements OnInit {
     }, {
       title: 'Weather',
       path: 'observable/weather'
-    },{
+    }, {
       title: 'Search',
       path: 'observable/search'
-    },{
+    }, {
       title: 'Invoice',
       path: 'observable/invoice'
-    },{
+    }, {
       title: 'Shop',
       path: 'observable/shop/ropa'
     }
     ]
-  },{
+  }, {
     title: 'Eventos',
-    path: 'events' 
-  },
+    path: 'events'
+  }, {
+    title: 'Templates',
+    key: 'templates',
+    children: [{
+      title: 'Contenido',
+      path: 'templates/content'
+    }, {
+      title: 'Loading',
+      path: 'templates/loading'
+    }
+    ]
+  }
   ]
 
   constructor(private alertService: NotifierService, private notif: MessageService) {

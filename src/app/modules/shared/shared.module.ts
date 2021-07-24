@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NotesComponent } from './notes/notes.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 
 @NgModule({
-  declarations: [NotesComponent],
+  declarations: [NotesComponent, DashboardComponent],
   imports: [
     CommonModule
-  ], exports: [NotesComponent]
+  ], exports: [NotesComponent, DashboardComponent ]
 })
 export class SharedModule { }
