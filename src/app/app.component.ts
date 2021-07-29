@@ -5,6 +5,7 @@ import { Message, TypeMessage } from './model/message';
 import { Observable } from 'rxjs';
 import { MessageService } from './services/message.service';
 import { NotifierService } from 'angular-notifier';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,8 @@ export class AppComponent implements OnInit {
 
   alert$: Observable<Message>;
 
+  user$: Observable<any>;
+
   public menus: Menu[] = [{
     title: 'Modulos',
     key: 'modulos',
@@ -25,13 +28,15 @@ export class AppComponent implements OnInit {
         path: 'componente_externos'
       }, {
         title: 'Componentes Internos',
-        path: 'componente_internos'
+        path: 'componente_internos',
+        required_auth: true
       }, {
         title: 'Componentes Externos Web',
         path: 'componentes_externo_web'
       }, {
         title: 'Modulo Carga Lenta',
-        path: 'module_carga_lenta'
+        path: 'module_carga_lenta',
+        required_auth: true
       }
     ]
 
@@ -41,7 +46,8 @@ export class AppComponent implements OnInit {
     children: [
       {
         title: 'Ruteo con Parametros',
-        path: 'routing_params'
+        path: 'routing_params',
+        required_auth: true
       }, {
         title: 'Routeo con Parametros de Consulta',
         path: 'routing_query_params'
@@ -73,7 +79,7 @@ export class AppComponent implements OnInit {
     ]
   }, {
     title: 'Eventos',
-    path: 'events'
+    path: 'events',
   }, {
     title: 'Templates',
     key: 'templates',
@@ -94,9 +100,11 @@ export class AppComponent implements OnInit {
   }
   ]
 
-  constructor(private alertService: NotifierService, private notif: MessageService) {
+  constructor(private alertService: NotifierService, private notif: MessageService,
+    private auth: AuthService) {
 
     this.alert$ = this.notif.notify.asObservable();
+    this.user$ = this.auth.user$.asObservable();
 
   }
 
@@ -110,6 +118,10 @@ export class AppComponent implements OnInit {
         this.alertService.notify('error', message.message);
       }
     })
+  }
+
+  public logout(){
+    this.auth.logout();
   }
 
 

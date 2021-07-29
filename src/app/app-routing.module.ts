@@ -12,12 +12,33 @@ import { PhotosComponent } from './components/routing-params/photos/photos.compo
 import { VideosComponent } from './components/routing-params/videos/videos.component';
 import { FriendsComponent } from './components/routing-params/friends/friends.component'
 import { AddressComponent } from './components/routing-params/address/address.component'
+import { LoginComponent } from './components/login/login.component';
+import { IsAuthGuard } from './guards/is-auth.guard';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 
 
-const routes: Routes = [ {
+const routes: Routes = [{
+  path: '',
+  redirectTo: 'componente_externos',
+  pathMatch: 'full'
+}, 
+ {
+  path: 'componente_externos',
+  component: ExternalComponentComponent,
+}, {
+  path: 'componente_internos',
+  component: InternalComponentComponent,
+  canActivate: [IsAuthGuard]
+
+}, {
+  path: 'componentes_externo_web',
+  component: WebComponentComponent,
+
+}, {
   path: 'routing_params',
   component: RoutingParamsComponent,
+  canActivateChild: [IsAuthGuard],
   children: [{
     path: '',
     redirectTo: 'posts',
@@ -40,7 +61,7 @@ const routes: Routes = [ {
   }, {
     path: 'friends',
     component: FriendsComponent
-  },{
+  }, {
     path: 'addresses/:id',
     component: AddressComponent
   }
@@ -51,15 +72,20 @@ const routes: Routes = [ {
 },
 {
   path: 'module_carga_lenta',
-  loadChildren: () => import('./modules/lazy-loading-module/lazy-loading-module.module').then(m => m.LazyLoadingModuleModule)
+  loadChildren: () => import('./modules/lazy-loading-module/lazy-loading-module.module').then(m => m.LazyLoadingModuleModule),
+  canLoad: [IsAuthGuard]
 },
 {
   path: 'routing',
   loadChildren: () => import('./modules/routing/routing.module').then(m => m.RoutingModule)
 },
-  { path: 'observable', loadChildren: () => import('./modules/observable/observable.module').then(m => m.ObservableModule) },
-  { path: 'events', loadChildren: () => import('./modules/events/events.module').then(m => m.EventsModule) },
-  { path: 'templates', loadChildren: () => import('./modules/templates/templates.module').then(m => m.TemplatesModule) }];
+{ path: 'observable', loadChildren: () => import('./modules/observable/observable.module').then(m => m.ObservableModule) },
+{ path: 'events', loadChildren: () => import('./modules/events/events.module').then(m => m.EventsModule) },
+{ path: 'templates', loadChildren: () => import('./modules/templates/templates.module').then(m => m.TemplatesModule) },
+{ path: 'login', component: LoginComponent },
+{ path: '404', component: NotFoundComponent }
+
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

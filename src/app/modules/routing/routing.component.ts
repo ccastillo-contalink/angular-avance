@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ProfileService } from '../../services/profile.service';
 
 @Component({
   selector: 'app-routing',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RoutingComponent implements OnInit {
 
-  constructor() { }
+  profile$: Observable<any>;
+
+
+  constructor(private profileService: ProfileService) {
+
+   }
+
 
   ngOnInit() {
+
+    this.profile$ = this.profileService.getProfile();
+
+
   }
 
 }

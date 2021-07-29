@@ -24,7 +24,15 @@ import { AddressComponent } from './components/routing-params/address/address.co
 import {MessageService} from './services/message.service';
 import { NotifierModule } from 'angular-notifier';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { LoginComponent } from './components/login/login.component';
 
+
+import {AuthService} from './services/auth.service';
+import {ProfileService} from './services/profile.service';
+
+import {HttpClientModule} from '@angular/common/http';
+import {ReactiveFormsModule} from '@angular/forms';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +51,9 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     PhotosComponent,
     VideosComponent,
     FriendsComponent,
-    AddressComponent
+    AddressComponent,
+    LoginComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +70,9 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
         }
       }
     }),    
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule,
+    ReactiveFormsModule
 
   ],
   providers: [MessageService],

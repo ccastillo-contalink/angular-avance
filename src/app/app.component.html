@@ -7,18 +7,31 @@
     </div>
     <ul class="list-unstyled components">
       <li *ngFor="let menu of menus;">
-        <a *ngIf="menu.children" href="#{{menu.key}}" data-toggle="collapse" aria-expanded="false"
-          class="dropdown-toggle">{{menu.title}}</a>
+
+        <a *ngIf="menu.children && !menu?.required_auth" href="#{{menu.key}}" data-toggle="collapse"
+          aria-expanded="false" class="dropdown-toggle">{{menu.title}}</a>
+        <a *ngIf="menu.children && menu?.required_auth && (user$ | async)" href="#{{menu.key}}" data-toggle="collapse"
+          aria-expanded="false" class="dropdown-toggle">{{menu.title}}</a>
+
+
         <ul class="collapse list-unstyled" [id]="menu.key">
-          <li *ngFor="let child of menu.children"> <a [routerLink]="child.path">{{child.title}}</a> </li>
+          <li *ngFor="let child of menu.children">
+            <a *ngIf="!child?.required_auth" [routerLink]="child.path">{{child.title}}</a>
+            <a *ngIf="child?.required_auth && (user$ | async)" [routerLink]="child.path">{{child.title}}</a>
+          </li>
+
         </ul>
-        <a *ngIf="menu?.path" [routerLink]="menu.path">{{menu.title}}</a>
+        <a *ngIf="menu?.path && !menu?.required_auth" [routerLink]="menu.path">{{menu.title}}</a>
+        <a *ngIf="menu?.path && menu?.required_auth && (user$ | async)" [routerLink]="menu.path">{{menu.title}}</a>
 
       </li>
 
     </ul>
-    <ul class="list-unstyled CTAs">
-      <li> <a href="#" class="download">Subscribe</a> </li>
+    <ul class="list-unstyled CTAs" *ngIf="!(user$ | async)">
+      <li> <a href="#" class="download" [routerLink]="['/login']">Login</a> </li>
+    </ul>
+    <ul class="list-unstyled CTAs" *ngIf="(user$ | async)">
+      <li> <a href="javascript:void()" class="download" (click)="logout()">Logout</a> </li>
     </ul>
   </nav>
   <div class="content" style="width:100%">

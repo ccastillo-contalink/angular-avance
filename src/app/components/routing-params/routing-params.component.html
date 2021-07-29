@@ -10,7 +10,7 @@
                             <div class="profile-header-img"> <img
                                     src="https://bootdey.com/img/Content/avatar/avatar7.png" alt=""></div>
                             <div class="profile-header-info">
-                                <h4 class="m-t-10 m-b-5">Sean Ngu</h4>
+                                <h4 class="m-t-10 m-b-5">{{(profile$ | async)?.profile.email}}</h4>
                                 <p class="m-b-10">UXUI + Frontend Developer</p> <a href="#"
                                     class="btn btn-xs btn-yellow">Edit Profile</a>
                             </div>

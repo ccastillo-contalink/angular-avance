@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User} from '../../model/user';
+import { Observable } from 'rxjs';
+import { ProfileService } from '../../services/profile.service';
 
 @Component({
   selector: 'app-routing-params',
@@ -7,6 +9,7 @@ import { User} from '../../model/user';
   styleUrls: ['./routing-params.component.css']
 })
 export class RoutingParamsComponent implements OnInit {
+  profile$: Observable<any>;
 
   public user: User= {
     id:'1',
@@ -14,9 +17,11 @@ export class RoutingParamsComponent implements OnInit {
     name:'Sr Angular'
   }
 
-  constructor() { }
+  constructor(private profileService: ProfileService) { }
 
   ngOnInit() {
+    this.profile$ = this.profileService.getProfile();
+
   }
 
 }
