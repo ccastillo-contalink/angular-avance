@@ -33,6 +33,9 @@ import {ProfileService} from './services/profile.service';
 import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ChangeDetenctionRefComponent } from './components/change-detenction-ref/change-detenction-ref.component';
+import { ChangeDetenctionPushComponent } from './components/change-detenction-push/change-detenction-push.component';
+import { CardComponent } from './components/change-detenction-push/card/card.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +56,10 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     FriendsComponent,
     AddressComponent,
     LoginComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ChangeDetenctionRefComponent,
+    ChangeDetenctionPushComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

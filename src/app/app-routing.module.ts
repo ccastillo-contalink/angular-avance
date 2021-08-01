@@ -15,6 +15,8 @@ import { AddressComponent } from './components/routing-params/address/address.co
 import { LoginComponent } from './components/login/login.component';
 import { IsAuthGuard } from './guards/is-auth.guard';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ChangeDetenctionRefComponent } from './components/change-detenction-ref/change-detenction-ref.component';
+import { ChangeDetenctionPushComponent } from './components/change-detenction-push/change-detenction-push.component';
 
 
 
@@ -22,8 +24,8 @@ const routes: Routes = [{
   path: '',
   redirectTo: 'componente_externos',
   pathMatch: 'full'
-}, 
- {
+},
+{
   path: 'componente_externos',
   component: ExternalComponentComponent,
 }, {
@@ -83,6 +85,8 @@ const routes: Routes = [{
 { path: 'events', loadChildren: () => import('./modules/events/events.module').then(m => m.EventsModule) },
 { path: 'templates', loadChildren: () => import('./modules/templates/templates.module').then(m => m.TemplatesModule) },
 { path: 'login', component: LoginComponent },
+{ path: 'change-detection-ref', component: ChangeDetenctionRefComponent },
+{ path: 'change-detection-push', component: ChangeDetenctionPushComponent },
 { path: '404', component: NotFoundComponent }
 
 ];

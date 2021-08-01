@@ -97,7 +97,16 @@ export class AppComponent implements OnInit {
       path: 'templates/dynamic-componets'
     }
     ]
-  }
+  }, {
+    title: 'Change Detection',
+    key: 'detection',
+    children: [{
+      title: 'Referencia',
+      path: 'change-detection-ref'
+    }, {
+      title: 'Push',
+      path: 'change-detection-push'
+    }]}
   ]
 
   constructor(private alertService: NotifierService, private notif: MessageService,
